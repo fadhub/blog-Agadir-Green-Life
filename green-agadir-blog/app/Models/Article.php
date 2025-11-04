@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use HasFactory;
     public function user(){
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsTo(User::class);
     }
     public function tags (){
         return $this->belongsToMany(Tag::class);

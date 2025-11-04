@@ -17,10 +17,11 @@ class ArticleFactory extends Factory
      */
     public function definition(): array
     {
+        //dd(implode("\n\n", $this->faker->paragraphs(3)));
         return [
             'user_id' => User::factory(),
             'title' => fake()->sentence(),
-            'content' => fake()->paragraphs(6),
+            'content' => implode("\n\n",(array) $this->faker->paragraphs(3)),
         ];
     }
 }
