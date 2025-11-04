@@ -1,205 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Agadir Green Life</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/home.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agadir Green Life - Accueil</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Styles intégrés (single file) -->
+  <style>
+    :root{
+      --green: #2e9a6a;
+      --green-dark: #1f7554;
+      --sand: #f4efe7;
+      --text: #1b1b1b;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      color: var(--text);
+      background: #fff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.5;
+    }
+
+    /* Palette et composants principaux */
+    .bg-sand { background-color: var(--sand); }
+
+    .brand-mark {
+      display: inline-block;
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--green) 0%, #79c48e 100%);
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      line-height: 28px;
+      margin-right: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      height: 60vh;
+      min-height: 420px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+    }
+    .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.25);
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    /* Cards/sections */
+    .article-card .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h5 { min-height: 48px; }
+
+    .body-soft {
+      background: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+    }
+
+    /* Newsletter et footer */
+    #newsletter { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+    footer { background: #111; color: #ddd; }
+
+    /* Responsive tweaks */
+    @media (max-width: 991px){
+      .hero { height: 50vh; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header / Navigation -->
+  <header class="sticky-top bg-white border-bottom shadow-sm">
+    <nav class="container navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <span class="brand-mark">AG</span> Agadir Green Life
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Basculer la navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#a-propos">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <!-- ==================== HEADER ==================== -->
-    <header class="header py-3 shadow-sm">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a href="index.html" class="logo fw-bold text-success fs-4">
-                <i class="fas fa-leaf me-2"></i>Agadir Green Life
-            </a>
-            <nav class="nav-menu d-none d-md-flex gap-4">
-                <a href="index.html" class="nav-link active">Accueil</a>
-                <a href="blog.html" class="nav-link">Articles</a>
-
-            </nav>
-            <button class="btn btn-outline-success d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                <i class="fas fa-bars"></i>
-            </button>
+  <!-- Hero -->
+  <section class="hero position-relative text-white d-flex align-items-center" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1600\" height=\"900\"><rect width=\"100%\" height=\"100%\" fill=\"%234e944b\"/><circle cx=\"300\" cy=\"300\" r=\"200\" fill=\"rgba(255,255,255,0.15)\"/><circle cx=\"1200\" cy=\"500\" r=\"300\" fill=\"rgba(255,255,255,0.08)\"/></svg>');">
+    <div class="overlay"></div>
+    <div class="container py-5 z-1">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <h1 class="display-4 fw-bold">Agadir Green Life</h1>
+          <p class="lead">Un blog collaboratif dédié à l'éco-responsabilité, valorisant les initiatives locales et sensibilisant la communauté.</p>
+          <a href="#articles" class="btn btn-outline-light btn-lg mt-2">Découvrir les articles</a>
         </div>
-    </header>
-
-    <!-- Mobile Menu Offcanvas -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        <div class="col-md-5 d-none d-md-block">
+          <!-- Visuel simple pour éviter requêtes externes dans le single file -->
+          <svg width="100%" height="100%" viewBox="0 0 600 400" role="img" aria-label="Illustration nature" preserveAspectRatio="xMidYMid meet">
+            <rect width="600" height="400" fill="none" />
+            <circle cx="480" cy="80" r="60" fill="#9bd898" opacity="0.9"/>
+            <rect x="60" y="210" width="180" height="120" rx="12" fill="#cfe7d8"/>
+            <rect x="280" y="240" width="210" height="90" rx="8" fill="#e8f4e7"/>
+          </svg>
         </div>
-        <div class="offcanvas-body">
-            <a href="index.html" class="d-block py-2">Accueil</a>
-            <a href="blog.html" class="d-block py-2">Articles</a>
-            <a href="#" class="d-block py-2">À propos</a>
-            <a href="#" class="d-block py-2">Contact</a>
-        </div>
+      </div>
     </div>
-    <!-- =============================================== -->
+  </section>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero vh-75 d-flex align-items-center position-relative overflow-hidden">
-        <div class="hero-bg"></div>
-        <div class="container position-relative z-3 text-center text-md-start">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold text-white mb-3 animate__animated animate__fadeInUp">
-                        Vivre vert à Agadir
-                    </h1>
-                    <p class="lead text-white mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                        Rejoignez une communauté engagée pour un avenir durable. Découvrez les initiatives locales, partagez vos idées éco-responsables.
-                    </p>
-                    <a href="blog.html" class="btn btn-success btn-lg animate__animated animate__fadeInUp animate__delay-2s">
-                        Découvrir les articles
-                    </a>
-                </div>
-            </div>
+  <!-- Introduction -->
+  <section class="py-5 bg-sand text-dark" id="intro">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="fw-bold">Notre mission</h2>
+          <p>Valoriser les initiatives éco locales à Agadir, encourager les pratiques durables et impulser une communauté engagée pour la protection de l’environnement.</p>
         </div>
-    </section>
-    <!-- ===================================================== -->
-
-    <!-- ==================== DERNIERS ARTICLES ==================== -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-success">Derniers articles</h2>
-                <p class="text-muted">Les initiatives qui font bouger Agadir</p>
+        <div class="col-md-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="card h-100 body-soft p-3">
+                <i class="fas fa-leaf fa-2x text-success"></i>
+                <h6 class="mt-2 mb-0">Durabilité</h6>
+              </div>
             </div>
-
-            <div class="row g-4">
-                <!-- Article Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-card">
-                        <img src="https://picsum.photos/seed/agadir1/400/250" class="card-img-top" alt="Article 1">
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-success mb-2">Recyclage</span>
-                            <h5 class="card-title">Les nouveaux points de collecte sélective à Agadir</h5>
-                            <p class="card-text text-muted flex-grow-1">
-                                Découvrez les 12 nouveaux conteneurs intelligents installés dans les quartiers...
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <small class="text-muted">3 min de lecture</small>
-                                <a href="article.html" class="btn btn-outline-success btn-sm">Lire →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Article Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-card">
-                        <img src="https://picsum.photos/seed/agadir2/400/250" class="card-img-top" alt="Article 2">
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-success mb-2">Énergie</span>
-                            <h5 class="card-title">Solaire : 200 foyers équipés à Talborjt</h5>
-                            <p class="card-text text-muted flex-grow-1">
-                                Un projet pilote qui réduit la facture énergétique de 40 % en moyenne...
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <small class="text-muted">5 min de lecture</small>
-                                <a href="article.html" class="btn btn-outline-success btn-sm">Lire →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Article Card 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-card">
-                        <img src="https://picsum.photos/seed/agadir3/400/250" class="card-img-top" alt="Article 3">
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-success mb-2">Communauté</span>
-                            <h5 class="card-title">Nettoyage collectif de la plage : record de participation</h5>
-                            <p class="card-text text-muted flex-grow-1">
-                                Plus de 800 volontaires ont ramassé 2 tonnes de déchets en une matinée...
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <small class="text-muted">2 min de lecture</small>
-                                <a href="article.html" class="btn btn-outline-success btn-sm">Lire →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-6">
+              <div class="card h-100 body-soft p-3">
+                <i class="fas fa-users fa-2x text-primary"></i>
+                <h6 class="mt-2 mb-0">Communauté</h6>
+              </div>
             </div>
-
-            <div class="text-center mt-5">
-                <a href="blog.html" class="btn btn-outline-success btn-lg">Voir tous les articles</a>
+            <div class="col-6">
+              <div class="card h-100 body-soft p-3">
+                <i class="fas fa-recycle fa-2x text-success"></i>
+                <h6 class="mt-2 mb-0">Recyclage</h6>
+              </div>
             </div>
+            <div class="col-6">
+              <div class="card h-100 body-soft p-3">
+                <i class="fas fa-seedling fa-2x text-success"></i>
+                <h6 class="mt-2 mb-0">Alimentation locale</h6>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
-    <!-- ========================================================== -->
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== COMMUNAUTÉ ==================== -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h2 class="display-5 fw-bold text-success mb-4">Rejoignez la communauté</h2>
-                    <p class="lead mb-4">
-                        Vous avez une initiative éco-responsable à partager ? Un projet local à valoriser ? 
-                        <strong>Agadir Green Life</strong> est votre espace d’expression.
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Soumettez vos articles</li>
-                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Participez aux événements</li>
-                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Inspirez les autres</li>
-                    </ul>
-                    <a href="#" class="btn btn-success btn-lg">Contribuer</a>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://picsum.photos/seed/community/600/400" alt="Communauté" class="img-fluid rounded shadow">
-                </div>
+  <!-- Derniers articles -->
+  <section class="py-5" id="articles">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">Derniers articles</h2>
+        <a href="#" class="text-decoration-none">Voir tout</a>
+      </div>
+      <div class="row g-4">
+        <!-- Carte article (exemple 3) -->
+        <article class="col-md-4">
+          <div class="card h-100 article-card">
+            <img src="https://picsum.photos/seed/1/600/400" class="card-img-top" alt="Article 1">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success mb-2">Recyclage</span>
+              <h5 class="card-title">Titre de l'article 1 sur l’éco-responsabilité</h5>
+              <p class="card-text flex-grow-1">Extrait bref pour attirer la lecture...</p>
+              <a href="#" class="mt-auto btn btn-outline-success">Lire l’article</a>
             </div>
+          </div>
+        </article>
+
+        <article class="col-md-4">
+          <div class="card h-100 article-card">
+            <img src="https://picsum.photos/seed/2/600/400" class="card-img-top" alt="Article 2">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success mb-2">Énergie durable</span>
+              <h5 class="card-title">Titre de l'article 2 sur les énergies locales</h5>
+              <p class="card-text flex-grow-1">Description succincte...</p>
+              <a href="#" class="mt-auto btn btn-outline-success">Lire l’article</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-md-4">
+          <div class="card h-100 article-card">
+            <img src="https://picsum.photos/seed/3/600/400" class="card-img-top" alt="Article 3">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success mb-2">Tourisme vert</span>
+              <h5 class="card-title">Titre de l'article 3 sur le tourisme responsable</h5>
+              <p class="card-text flex-grow-1">Bref aperçu...</p>
+              <a href="#" class="mt-auto btn btn-outline-success">Lire l’article</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section communauté -->
+  <section class="py-5 bg-light" id="communaute">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h3 class="fw-bold mb-2">Contribuez à la communauté</h3>
+          <p>Partagez vos initiatives locales et inspirez les autres à agir durablement.</p>
         </div>
-    </section>
-    <!-- ==================================================== -->
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold"><i class="fas fa-leaf text-success me-2"></i>Agadir Green Life</h5>
-                    <p class="small text-muted">
-                        Blog collaboratif dédié à l'éco-responsabilité et au développement durable à Agadir.
-                    </p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6 class="fw-bold">Liens utiles</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-muted text-decoration-none">Accueil</a></li>
-                        <li><a href="blog.html" class="text-muted text-decoration-none">Articles</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">À propos</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6 class="fw-bold">Suivez-nous</h6>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white"><i class="fab fa-facebook fs-4"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram fs-4"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fs-4"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="text-center small text-muted">
-                © 2025 Agadir Green Life. Tous droits réservés.
-            </div>
+        <div class="col-md-4 text-md-end">
+          <a href="#contact" class="btn btn-primary">Contactez-nous</a>
         </div>
-    </footer>
-    <!-- ================================================ -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Newsletter (optionnel) -->
+  <section class="py-4 bg-sand" id="newsletter" aria-label="Newsletter">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h4 class="mb-2">Recevoir les actualités</h4>
+          <p class="mb-3">Abonnez-vous pour ne rien manquer des initiatives locales.</p>
+          <form class="row g-2 justify-content-center" onsubmit="return false;">
+            <div class="col-auto">
+              <input type="email" class="form-control" placeholder="Votre email" aria-label="Email">
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-success" type="submit">S'abonner</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Agadir Green Life. Tous droits réservés.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="me-3"><i class="fab fa-facebook-f"></i></span>
+          <span class="me-3"><i class="fab fa-instagram"></i></span>
+          <span><i class="fab fa-twitter"></i></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FontAwesome (pour icônes) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
