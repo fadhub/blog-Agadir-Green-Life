@@ -1,0 +1,40 @@
+@startuml
+title Cas d'utilisation Globale - Agadir Green Life
+top to bottom direction
+skinparam shadowing false
+skinparam usecase {
+    BackgroundColor LightGreen
+    BorderColor DarkGreen
+}
+
+' === ACTEURS ===
+actor Malak as "Malak (Utilisatrice)" #87CEFA
+actor Hakim as "Hakim (Editeur)" #FFFF99
+actor Sofia as "Sofia (Admin)" #FF7F7F
+
+' === CAS D'UTILISATION ===
+usecase "Lire un article" as UC1
+usecase "Créer les articles" as UC2
+usecase "Gérer comptes utilisateurs" as UC3
+usecase "Rechercher un article" as UC4
+usecase "Consulter les articles" as UC7
+usecase "Filtrer par catégorie" as UC8
+usecase "Valider les articles" as UC10
+
+' === RELATIONS ACTEURS ===
+Malak --> UC1
+Malak --> UC4
+Malak --> UC7
+Malak --> UC8
+
+Hakim --> UC2
+
+Sofia --> UC3
+Sofia --> UC10
+
+' === RELATIONS ENTRE CAS ===
+UC1 --> UC8 : <<include>>
+UC4 --> UC8 : <<include>>
+UC2 ..> UC10 : <<extend>>
+
+@enduml
