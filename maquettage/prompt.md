@@ -48,7 +48,7 @@ Objectif : valoriser les initiatives locales, encourager les pratiques durables 
 
 ## ⚙️ **6. Technologies**
 
-* HTML + Bootstrap 5
+* HTML + talwaind
 * CSS personnalisé
 * icônes FontAwesome
 * Maquette *one-page* pour chaque vue

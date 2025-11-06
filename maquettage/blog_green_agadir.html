@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agadir Green Life - Blog Éco-responsable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'agadir-green': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        'sable': {
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        .nav-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-zoom {
+            overflow: hidden;
+        }
+
+        .img-zoom img {
+            transition: transform 0.5s ease;
+        }
+
+        .img-zoom:hover img {
+            transform: scale(1.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .prose-custom h1, .prose-custom h2, .prose-custom h3 {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white nav-shadow transition-all duration-300">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-agadir-green-600 text-3xl"></i>
+                    <span class="text-2xl font-bold text-gray-800">Agadir <span class="text-agadir-green-600">Green Life</span></span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link text-gray-700 hover:text-agadir-green-600 transition font-medium">Accueil</a>
+                    <a href="#articles" class="nav-link text-gray-700 hover:text-agadir-green-600 transition font-medium">Articles</a>
+                    <a href="#contribution" class="nav-link text-gray-700 hover:text-agadir-green-600 transition font-medium">Contribuer</a>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#accueil" class="block py-2 text-gray-700 hover:text-agadir-green-600">Accueil</a>
+                <a href="#articles" class="block py-2 text-gray-700 hover:text-agadir-green-600">Articles</a>
+                <a href="#contribution" class="block py-2 text-gray-700 hover:text-agadir-green-600">Contribuer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+<section id="accueil" class="hero-gradient pt-24 pb-20 min-h-screen flex items-center relative">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'); opacity: 0.7;"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center text-white fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
+                Ensemble pour un <br>Agadir Durable
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-emerald-50 max-w-3xl mx-auto drop-shadow-lg">
+                Découvrez et partagez les initiatives éco-responsables qui transforment notre ville
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('articles')" class="bg-white text-agadir-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition shadow-lg">
+                    Explorer les articles
+                </button>
+                <button onclick="showContributionForm()" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-agadir-green-600 transition shadow-lg">
+                    Contribuer
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="text-center mt-16">
+            <i class="fas fa-chevron-down text-white text-3xl animate-bounce"></i>
+        </div>
+    </div>
+</section>
+            <!-- Scroll Indicator -->
+            <div class="text-center mt-16">
+                <i class="fas fa-chevron-down text-white text-3xl animate-bounce"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== À PROPOS ==================== -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Notre Mission</h2>
+                <p class="text-gray-600 text-lg mb-4">
+                    Agadir Green Life est une plateforme collaborative dédiée à la promotion de l'éco-responsabilité dans notre ville.
+                </p>
+                <p class="text-gray-600 text-lg mb-6">
+                    Nous valorisons les initiatives locales, encourageons les pratiques durables et sensibilisons notre communauté à la protection de l'environnement.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-agadir-green-600"></i>
+                        <span class="text-gray-700">Initiatives locales</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-agadir-green-600"></i>
+                        <span class="text-gray-700">Pratiques durables</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-agadir-green-600"></i>
+                        <span class="text-gray-700">Sensibilisation</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-lg mt-6">
+                    Actuellement, Hakim est notre seul contributeur. Nous cherchons à élargir notre équipe pour partager encore plus d'initiatives éco-responsables.
+                </p>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" alt="Agadir" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- ==================== ARTICLES SECTION ==================== -->
+    <section id="articles" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tous les Articles</h2>
+                <p class="text-gray-600 text-lg">Découvrez nos publications sur l'éco-responsabilité à Agadir</p>
+            </div>
+
+            <!-- Filtres -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterArticles('all')" class="filter-btn bg-agadir-green-600 text-white px-6 py-2 rounded-full font-medium hover:bg-agadir-green-700 transition">
+                    Tous
+                </button>
+                <button onclick="filterArticles('eco-tourisme')" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-agadir-green-100 transition border border-gray-200">
+                    Éco-tourisme
+                </button>
+                <button onclick="filterArticles('zero-dechet')" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-agadir-green-100 transition border border-gray-200">
+                    Zéro déchet
+                </button>
+                <button onclick="filterArticles('energie')" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-agadir-green-100 transition border border-gray-200">
+                    Énergie verte
+                </button>
+            </div>
+
+            <!-- Grille d'articles -->
+            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-category="eco-tourisme">
+                    <div class="img-zoom h-52">
+                        <img src="images/plage_agadir.png" alt="Éco-tourisme" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-agadir-green-100 text-agadir-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                            Éco-tourisme
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-agadir-green-600 transition cursor-pointer" onclick="showArticleDetail(1)">
+                            Les meilleures plages écologiques d'Agadir
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Découvrez les initiatives de préservation des plages et comment profiter du littoral de manière responsable...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://ui-avatars.com/api/?name=Hakim&background=10b981&color=fff" class="w-8 h-8 rounded-full">
+                                <span class="text-sm text-gray-600">Hakim</span>
+                            </div>
+                            <span class="text-sm text-gray-500">5 Nov 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-category="zero-dechet">
+                    <div class="img-zoom h-52">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800" alt="Zéro déchet" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                            Zéro déchet
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-agadir-green-600 transition cursor-pointer" onclick="showArticleDetail(2)">
+                            Guide du compostage urbain à Agadir
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Comment réduire vos déchets organiques et créer votre propre compost en appartement ou maison...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://ui-avatars.com/api/?name=Hakim&background=10b981&color=fff" class="w-8 h-8 rounded-full">
+                                <span class="text-sm text-gray-600">Hakim</span>
+                            </div>
+                            <span class="text-sm text-gray-500">3 Nov 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-category="energie">
+                    <div class="img-zoom h-52">
+                        <img src="images/energie_solaire.png" alt="Énergie solaire" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                            Énergie verte
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-agadir-green-600 transition cursor-pointer" onclick="showArticleDetail(3)">
+                            L'énergie solaire à Agadir : opportunités
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Avec 300 jours d'ensoleillement par an, Agadir est la ville idéale pour l'énergie solaire...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <img src="https://ui-avatars.com/api/?name=Hakim&background=10b981&color=fff" class="w-8 h-8 rounded-full">
+                                <span class="text-sm text-gray-600">Hakim</span>
+                            </div>
+                            <span class="text-sm text-gray-500">1 Nov 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <div class="text-center mt-12">
+    <p class="text-lg text-gray-700">Tous les articles sont déjà affichés ci-dessus. Explorez-les pour en savoir plus !</p>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTRIBUTION SECTION ==================== -->
+<section id="contribution" class="py-20 bg-agadir-green-600">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <i class="fas fa-users text-6xl mb-6"></i>
+            <h2 class="text-4xl font-bold mb-6">Rejoignez notre communauté</h2>
+            <p class="text-xl mb-8 text-emerald-50">
+                Vous avez une initiative éco-responsable à partager ? Devenez contributeur et inspirez d'autres personnes à agir pour l'environnement.
+            </p>
+            <button onclick="showContributionForm()" class="bg-white text-agadir-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition shadow-lg">
+                <i class="fas fa-pencil-alt mr-2"></i> Écrire un article
+            </button>
+        </div>
+    </div>
+</section>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-leaf text-agadir-green-600 text-2xl"></i>
+                        <span class="text-xl font-bold">Agadir Green Life</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Ensemble pour un Agadir durable et éco-responsable.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#accueil" class="hover:text-agadir-green-600 transition">Accueil</a></li>
+                        <li><a href="#articles" class="hover:text-agadir-green-600 transition">Articles</a></li>
+                        <li><a href="#contribution" class="hover:text-agadir-green-600 transition">Contribuer</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i> contact@agadirgreenlife.ma</li>
+                        <li><i class="fas fa-phone mr-2"></i> +212 5XX-XXXXXX</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Agadir, Maroc</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Réseaux sociaux</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-agadir-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-agadir-green-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-agadir-green-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-agadir-green-600 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Agadir Green Life. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL ARTICLE DETAIL ==================== -->
+    <div id="articleModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="container mx-auto px-4 py-8">
+            <div class="bg-white rounded-2xl max-w-4xl mx-auto shadow-2xl">
+                <div class="relative h-96">
+                    <img id="modalImage" src="" alt="" class="w-full h-full object-cover rounded-t-2xl">
+                    <button onclick="closeArticleModal()" class="absolute top-4 right-4 bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="p-8">
+                    <span id="modalCategory" class="inline-block bg-agadir-green-100 text-agadir-green-800 text-sm font-semibold px-4 py-2 rounded-full mb-4"></span>
+                    <h2 id="modalTitle" class="text-4xl font-bold text-gray-800 mb-4"></h2>
+                    <div class="flex items-center space-x-4 mb-6 text-gray-600">
+                        <div class="flex items-center space-x-2">
+                            <img id="modalAuthorAvatar" src="" class="w-10 h-10 rounded-full">
+                            <span id="modalAuthor"></span>
+                        </div>
+                        <span>•</span>
+                        <span id="modalDate"></span>
+                        <span>•</span>
+                        <span><i class="far fa-clock mr-1"></i> 5 min de lecture</span>
+                    </div>
+                    <div id="modalContent" class="prose-custom text-gray-700 text-lg leading-relaxed space-y-4"></div>
+                    
+                    <!-- Section commentaires -->
+                    <div class="mt-12 border-t pt-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Commentaires (3)</h3>
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://ui-avatars.com/api/?name=Ali&background=10b981&color=fff" class="w-10 h-10 rounded-full">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-1">
+                                            <span class="font-semibold text-gray-800">Ali</span>
+                                            <span class="text-sm text-gray-500">Il y a 2 heures</span>
+                                        </div>
+                                        <p class="text-gray-700">Excellent article ! J'ai commencé à appliquer ces conseils.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-3">Ajouter un commentaire</h4>
+                            <textarea class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-agadir-green-500 focus:border-transparent" rows="4" placeholder="Votre commentaire..."></textarea>
+                            <button class="mt-3 bg-agadir-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-agadir-green-700 transition">
+                                Publier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Filter articles
+        function filterArticles(category) {
+            const articles = document.querySelectorAll('.article-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-agadir-green-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+            });
+            event.target.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+            event.target.classList.add('bg-agadir-green-600', 'text-white');
+            
+            // Filter articles
+            articles.forEach(article => {
+                if (category === 'all' || article.dataset.category === category) {
+                    article.classList.remove('hidden');
+                } else {
+                    article.classList.add('hidden');
+                }
+            });
+        }
+
+        // Show article detail modal
+        const articlesData = {
+            1: {
+                title: "Les meilleures plages écologiques d'Agadir",
+                category: "Éco-tourisme",
+                author: "Malak",
+                date: "5 Nov 2025",
+                image: "images/plage_agadir.png",
+                content: `
+                    <p>Agadir, ville côtière du Maroc, est réputée pour ses magnifiques plages qui s'étendent sur plusieurs kilomètres. Mais au-delà de leur beauté naturelle, certaines plages se distinguent par leurs initiatives écologiques exemplaires.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Plage d'Agadir : Un modèle de préservation</h3>
+                    <p>La plage principale d'Agadir a obtenu le label Pavillon Bleu, une reconnaissance internationale pour la qualité de ses eaux et la gestion environnementale. Des poubelles de tri sélectif sont installées tous les 50 mètres, et des campagnes régulières de nettoyage sont organisées.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Initiatives locales</h3>
+                    <p>De nombreuses associations locales organisent des actions de sensibilisation auprès des touristes et résidents. Des bénévoles patrouillent régulièrement pour veiller au respect de l'environnement marin.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Comment contribuer ?</h3>
+                    <p>Chacun peut agir : ramassez vos déchets, utilisez des produits solaires respectueux de l'environnement, et participez aux journées de nettoyage organisées chaque mois.</p>
+                `
+            },
+            2: {
+                title: "Guide du compostage urbain à Agadir",
+                category: "Zéro déchet",
+                author: "Hakim",
+                date: "3 Nov 2025",
+                image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800",
+                content: `
+                    <p>Le compostage est une solution simple et efficace pour réduire nos déchets organiques tout en créant un fertilisant naturel pour nos plantes. Voici comment vous pouvez commencer, même en appartement.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Pourquoi composter ?</h3>
+                    <p>Les déchets organiques représentent environ 30% de nos poubelles. En les compostant, vous réduisez considérablement votre impact environnemental tout en produisant un engrais naturel gratuit.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Matériel nécessaire</h3>
+                    <p>Pour débuter, vous aurez besoin d'un composteur (disponible dans les jardineries d'Agadir) ou d'un simple bac si vous êtes en appartement. Assurez-vous qu'il soit bien aéré.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Que composter ?</h3>
+                    <p>Épluchures de fruits et légumes, marc de café, coquilles d'œufs, sachets de thé... La liste est longue ! Évitez la viande, le poisson et les produits laitiers qui attirent les nuisibles.</p>
+                `
+            },
+            3: {
+                title: "L'énergie solaire à Agadir : opportunités",
+                category: "Énergie verte",
+                author: "Sarah",
+                date: "1 Nov 2025",
+                image: "images/energie_solaire.png",
+                content: `
+                    <p>Avec plus de 300 jours d'ensoleillement par an, Agadir dispose d'un potentiel solaire exceptionnel. L'énergie solaire représente une opportunité majeure pour la ville.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Le potentiel d'Agadir</h3>
+                    <p>Notre région bénéficie d'un des meilleurs taux d'ensoleillement du Maroc. Cette ressource naturelle peut être transformée en électricité propre et renouvelable.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Solutions pour les particuliers</h3>
+                    <p>L'installation de panneaux solaires devient de plus en plus accessible. Plusieurs entreprises locales proposent des solutions adaptées à tous les budgets.</p>
+                    
+                    <h3 class="text-2xl font-bold mt-6 mb-3">Rentabilité et subventions</h3>
+                    <p>Les panneaux solaires s'amortissent généralement en 7 à 10 ans. De plus, des subventions gouvernementales sont disponibles pour encourager la transition énergétique.</p>
+                `
+            }
+        };
+
+        function showArticleDetail(articleId) {
+            const article = articlesData[articleId];
+            if (!article) return;
+            
+            document.getElementById('modalImage').src = article.image;
+            document.getElementById('modalCategory').textContent = article.category;
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalAuthor').textContent = article.author;
+            document.getElementById('modalDate').textContent = article.date;
+            document.getElementById('modalContent').innerHTML = article.content;
+            document.getElementById('modalAuthorAvatar').src = `https://ui-avatars.com/api/?name=${article.author}&background=10b981&color=fff`;
+            
+            document.getElementById('articleModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show contribution form
+        function showContributionForm() {
+            alert('Fonctionnalité de contribution à venir ! Contactez-nous à contact@agadirgreenlife.ma');
+        }
+    </script>
+
+</body>
+</html>
