@@ -1,0 +1,69 @@
+classDiagram
+    class Utilisateur {
+        +int id
+        +string nom
+        +string email
+        +string mot_de_passe
+        +string avatar
+        +s_authentifier()
+        +s_inscrire()
+        +se_connecter()
+        +consulter_profil()
+        +mettre_a_jour_profil()
+    }
+
+    class Administrateur {
+        +int id
+        +gérer_utilisateurs()
+        +gérer_contenu()
+        +approuver_commentaire()
+        +supprimer_contenu()
+    }
+
+    class Article {
+        +int id
+        +string titre
+        +string contenu
+        +string image_principale
+        +date date_publication
+        +bool est_publie
+        +publier()
+        +mettre_a_jour()
+        +supprimer()
+        +filtrer_par_categorie()
+        +rechercher()
+    }
+
+    class Commentaire {
+        +int id
+        +string contenu
+        +date date_creation
+        +bool est_approuve
+        +ajouter()
+        +modifier()
+        +supprimer()
+        +signaler()
+    }
+
+    class Tag {
+        +int id
+        +string nom
+        +string description
+        +string couleur
+    }
+
+    class Media {
+        +int id
+        +string url
+        +string type
+        +string legende
+    }
+
+    Utilisateur "1" --> "*" Article : publie
+    Utilisateur "1" --> "*" Commentaire : poste
+    Article "1" --> "*" Commentaire : contient
+    Article "*" -- "*" Tag : a_pour
+    Article "1" --> "*" Media : contient
+    Administrateur --|> Utilisateur
+    Administrateur "1" --> "*" Commentaire : modère
+    Administrateur "1" --> "*" Article : valide
