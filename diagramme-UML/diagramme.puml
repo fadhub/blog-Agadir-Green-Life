@@ -19,6 +19,7 @@ usecase "Gérer comptes utilisateurs" as UC3
 usecase "Rechercher un article" as UC4
 usecase "Consulter les articles" as UC7
 usecase "Filtrer par catégorie" as UC8
+usecase "Commenter" as UC9
 usecase "Valider les articles" as UC10
 
 ' === RELATIONS ACTEURS ===
@@ -26,6 +27,7 @@ Malak -- UC1
 Malak -- UC4
 Malak -- UC7
 Malak -- UC8
+Malak -- UC9
 
 Hakim -- UC2
 
