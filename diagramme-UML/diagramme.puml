@@ -22,19 +22,19 @@ usecase "Filtrer par catégorie" as UC8
 usecase "Valider les articles" as UC10
 
 ' === RELATIONS ACTEURS ===
-Malak --> UC1
-Malak --> UC4
-Malak --> UC7
-Malak --> UC8
+Malak -- UC1
+Malak -- UC4
+Malak -- UC7
+Malak -- UC8
 
-Hakim --> UC2
+Hakim -- UC2
 
-Sofia --> UC3
-Sofia --> UC10
+Sofia -- UC3
+Sofia -- UC10
 
 ' === RELATIONS ENTRE CAS ===
-UC1 --> UC8 : <<include>>
-UC4 --> UC8 : <<include>>
-UC2 ..> UC10 : <<extend>>
+UC1 -- UC8 : <<include>>
+UC4 -- UC8 : <<include>>
+UC2 .. UC10 : <<extend>>
 
 @enduml

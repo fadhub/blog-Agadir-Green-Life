@@ -12,11 +12,11 @@ usecase "Lire un article" as UC2
 usecase "Créer des articles" as UC3
 
 ' === RELATIONS ===
-Malak --> UC1
-Malak --> UC2
+Malak -- UC1
+Malak -- UC2
 
-Hakim --> UC1
-Hakim --> UC2
-Hakim --> UC3
+Hakim -- UC1
+Hakim -- UC2
+Hakim -- UC3
 
 @enduml
