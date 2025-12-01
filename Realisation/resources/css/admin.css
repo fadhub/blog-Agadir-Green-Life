@@ -1,0 +1,70 @@
+/* Styles pour le filtre automatique */
+.auto-submit {
+    transition: all 0.3s ease;
+}
+
+.auto-submit:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Styles pour le bouton de réinitialisation */
+.btn-reset {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    transition: all 0.2s;
+}
+
+.btn-reset:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.btn-reset:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Animation de chargement */
+.loading-spinner {
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style pour le conteneur du filtre */
+.filter-container {
+    position: relative;
+}
+
+/* Style pour l'indicateur de chargement */
+.filter-loading {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+/* Style pour le formulaire de filtre */
+#filter-form {
+    position: relative;
+}
